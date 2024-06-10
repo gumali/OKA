@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "855996464171",
+    "project_id": "log-in-admin",
+    "storage_bucket": "log-in-admin.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:855996464171:android:17e1c67b69dc8257f37e6e",
+        "android_client_info": {
+          "package_name": "com.abdalkareem.project"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9-SM7DO8dOJ4WAfBZTh0v08QlVVemXyk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Project</string>
+    <string name="admin_emil">Admin Email</string>
+    <string name="password">Password</string>
+    <string name="remebmer_me">Remebmer me</string>
+    <string name="log_in">LOG IN</string>
+</resources>
