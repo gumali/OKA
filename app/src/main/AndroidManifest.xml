@@ -13,6 +13,42 @@
         android:theme="@style/Theme.Project"
         tools:targetApi="31">
         <activity
+            android:name=".update_car"
+            android:exported="false" />
+        <activity
+            android:name=".rented_cars"
+            android:exported="false" />
+        <activity
+            android:name=".remove_car"
+            android:exported="false" />
+        <activity
+            android:name=".display_car"
+            android:exported="false" />
+        <activity
+            android:name=".customer"
+            android:exported="false" />
+        <activity
+            android:name=".add_car"
+            android:exported="false" />
+        <activity
+            android:name=".add_admin"
+            android:exported="false" />
+        <activity
+            android:name=".FirstAdminactivity"
+            android:exported="false" />
+        <activity
+            android:name=".CarType"
+            android:exported="false" />
+        <activity
+            android:name=".BrandActivity"
+            android:exported="false" />
+        <activity
+            android:name=".brand"
+            android:exported="false" />
+        <activity
+            android:name=".classfication_car"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity2"
             android:exported="false" />
         <activity

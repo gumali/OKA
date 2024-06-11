@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/carIdEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Car ID" />
+
+    <EditText
+        android:id="@+id/carNameEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Car Name"
+        android:layout_below="@id/carIdEditText"
+        android:layout_marginTop="16dp" />
+
+    <EditText
+        android:id="@+id/carTypeEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Car Type"
+        android:layout_below="@id/carNameEditText"
+        android:layout_marginTop="16dp" />
+
+    <EditText
+        android:id="@+id/carModelEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Car Model"
+        android:layout_below="@id/carTypeEditText"
+        android:layout_marginTop="16dp" />
+
+    <EditText
+        android:id="@+id/carPriceEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Price"
+        android:layout_below="@id/carModelEditText"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/updateButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/carPriceEditText"
+        android:layout_marginTop="16dp"
+        android:text="Update Car" />
+
+</RelativeLayout>

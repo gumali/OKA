@@ -89,7 +89,7 @@ public class admin_login extends AppCompatActivity {
 
                         if (Objects.equals(passwordfromDB, admipassword)) {
                             isPasswordCorrect = true;
-                            Intent intent = new Intent(admin_login.this, admin_first.class);
+                            Intent intent = new Intent(admin_login.this, FirstAdminactivity.class);
                             startActivity(intent);
                             break;
                         }

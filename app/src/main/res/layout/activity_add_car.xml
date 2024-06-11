@@ -1,0 +1,61 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/carName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Car Name" />
+
+    <EditText
+        android:id="@+id/carType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Car Type"
+        android:layout_below="@id/carName"
+        android:layout_marginTop="8dp" />
+
+    <EditText
+        android:id="@+id/carModel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Car Model"
+        android:layout_below="@id/carType"
+        android:layout_marginTop="8dp" />
+
+    <EditText
+        android:id="@+id/carPrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Price"
+        android:layout_below="@id/carModel"
+        android:layout_marginTop="8dp" />
+
+    <Button
+        android:id="@+id/uploadImageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Upload Image"
+        android:layout_below="@id/carPrice"
+        android:layout_marginTop="8dp" />
+
+    <!-- Empty ImageView added here -->
+    <ImageView
+        android:id="@+id/emptyImageView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@id/uploadImageButton"
+        android:layout_marginTop="8dp"
+        android:contentDescription="Empty Image" />
+
+    <Button
+        android:id="@+id/addCarButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Car"
+        android:layout_below="@id/emptyImageView"
+        android:layout_marginTop="16dp" />
+
+</RelativeLayout>

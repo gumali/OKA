@@ -67,7 +67,7 @@ android:background="@color/button_color"
             android:layout_marginEnd="5dp"
             android:layout_weight="1"
             android:background="@color/button_color"
-
+android:onClick="user"
             android:drawableLeft="@drawable/user"
             android:text="User" />
     </LinearLayout>
