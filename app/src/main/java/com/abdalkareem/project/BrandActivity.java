@@ -29,7 +29,7 @@ public class BrandActivity extends AppCompatActivity implements BrandSelectListe
     private RecyclerView recyclerView;
     private BrandAdapter recyclerAdapt;
 
-    private static final String Base_URL = "http://192.168.1.105:8080/testCars/getCars.php";
+    private static final String Base_URL = "http://192.168.56.1/rest/get_item.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
