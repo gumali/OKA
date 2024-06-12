@@ -40,6 +40,7 @@ public class classfication_car  extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 Intent intent = new Intent(classfication_car.this, BrandActivity.class);
+                intent.putExtra("clas_id", position+1);
                 startActivity(intent);
             }
         });
