@@ -78,8 +78,10 @@ public class FirstAdminactivity extends Activity {
         viewAsCustomerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(FirstAdminactivity.this, customer.class));
+                startActivity(new Intent(FirstAdminactivity.this, classfication_car.class));
             }
         });
     }
+
+
 }

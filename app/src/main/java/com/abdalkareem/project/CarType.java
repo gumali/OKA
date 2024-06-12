@@ -28,7 +28,7 @@ import java.util.List;
 public class CarType extends AppCompatActivity {
     private List<Cars> items = new ArrayList<>();
     private RecyclerView recycler;
-    private static  final String BASE_URL = "http://192.168.1.105:8080/testCars/getCars.php";
+    private static  final String BASE_URL = "http://192.168.56.1/rest/getcarimage.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

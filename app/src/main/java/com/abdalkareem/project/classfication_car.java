@@ -38,6 +38,7 @@ public class classfication_car  extends AppCompatActivity {
         carTypeListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
                 Intent intent = new Intent(classfication_car.this, BrandActivity.class);
                 startActivity(intent);
             }

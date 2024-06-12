@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -11,7 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Project"
-        tools:targetApi="31">
+        tools:targetApi="31"
+        android:networkSecurityConfig="@xml/network_security_config"
+        >
         <activity
             android:name=".update_car"
             android:exported="false" />
@@ -42,21 +45,15 @@
         <activity
             android:name=".BrandActivity"
             android:exported="false" />
-        <activity
-            android:name=".brand"
-            android:exported="false" />
+
         <activity
             android:name=".classfication_car"
             android:exported="false" />
-        <activity
-            android:name=".MainActivity2"
-            android:exported="false" />
+
         <activity
             android:name=".admin_first"
             android:exported="false" />
-        <activity
-            android:name=".car_classification"
-            android:exported="false" />
+
         <activity
             android:name=".admin_login"
             android:exported="false" />
