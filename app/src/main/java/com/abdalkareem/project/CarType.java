@@ -1,7 +1,5 @@
 package com.abdalkareem.project;
-
-
-
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -25,16 +23,17 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CarType extends AppCompatActivity {
+public class CarType extends AppCompatActivity implements CarSelectListener {
     private List<Cars> items = new ArrayList<>();
     private RecyclerView recycler;
-    private static  final String BASE_URL = "http://192.168.1.105:8080/testCars/getCars.php";
+    private static final String BASE_URL = "http://192.168.1.105:8080/testCars/getCars.php";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_car_type);
-        recycler=findViewById(R.id.carRV);
+        recycler = findViewById(R.id.carRV);
         recycler.setLayoutManager(new LinearLayoutManager(this));
         loadItems();
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -43,22 +42,16 @@ public class CarType extends AppCompatActivity {
             return insets;
         });
     }
-    private void loadItems() {
 
+    private void loadItems() {
         StringRequest stringRequest = new StringRequest(Request.Method.GET, BASE_URL,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-
-
-
                         try {
-
                             JSONArray array = new JSONArray(response);
-                            for (int i = 0; i<array.length(); i++){
-
+                            for (int i = 0; i < array.length(); i++) {
                                 JSONObject object = array.getJSONObject(i);
-
                                 String image = object.getString("car_image");
                                 int id = object.getInt("car_ID");
                                 int model = object.getInt("model");
@@ -66,32 +59,35 @@ public class CarType extends AppCompatActivity {
                                 String name = object.getString("car_name");
                                 String company = object.getString("car_company");
 
-
-
-                                Cars car = new Cars(image, id,model,date,name,company);
+                                Cars car = new Cars(image, id, model, date, name, company);
                                 items.add(car);
                             }
-
-                        }catch (Exception e){
-
+                        } catch (Exception e) {
+                            e.printStackTrace();
                         }
 
-                        carsAdapter adapter = new carsAdapter(CarType.this,
-                                items);
+                        carsAdapter adapter = new carsAdapter(CarType.this, items, CarType.this);
                         recycler.setAdapter(adapter);
-
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-
-
-                Toast.makeText(CarType.this, error.toString(),Toast.LENGTH_LONG).show();
-
+                Toast.makeText(CarType.this, error.toString(), Toast.LENGTH_LONG).show();
             }
         });
 
         Volley.newRequestQueue(CarType.this).add(stringRequest);
+    }
 
+    @Override
+    public void onItemClicked(Cars car) {
+        Intent intent = new Intent(CarType.this, FormActivity.class);
+        intent.putExtra("car_id", car.getID());
+        intent.putExtra("car_image", car.getCarImage());
+        intent.putExtra("car_model", car.getModel());
+        intent.putExtra("car_date", car.getLicinse());
+        intent.putExtra("car_name", car.getName());
+        intent.putExtra("car_company", car.getCompany());
+        startActivity(intent);
     }
 }

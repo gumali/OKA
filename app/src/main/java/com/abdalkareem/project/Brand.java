@@ -16,19 +16,19 @@ public class Brand {
         return ID;
     }
 
-    ;
+
 
     public String getImage() {
         return image;
     }
 
-    ;
+
 
     public int getIDClassification() {
         return IDClassification;
     }
 
-    ;
+
 
     public void setId(int id) {
         this.ID = id;

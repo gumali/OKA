@@ -1,5 +1,6 @@
 package com.abdalkareem.project;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -23,18 +24,20 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BrandActivity extends AppCompatActivity {
+public class BrandActivity extends AppCompatActivity implements BrandSelectListener {
     private List<Brand> items = new ArrayList<>();
     private RecyclerView recyclerView;
-    private RecyclerView.Adapter recyclerAdapt;
+    private BrandAdapter recyclerAdapt;
+
     private static final String Base_URL = "http://192.168.1.105:8080/testCars/getCars.php";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_brand);
 
-        recyclerView=findViewById(R.id.recycler);
+        recyclerView = findViewById(R.id.recycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -43,7 +46,8 @@ public class BrandActivity extends AppCompatActivity {
         });
         loadItems();
     }
-    private void loadItems(){
+
+    private void loadItems() {
         StringRequest stringRequest = new StringRequest(Request.Method.GET, Base_URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -51,24 +55,34 @@ public class BrandActivity extends AppCompatActivity {
                     JSONArray array = new JSONArray(response);
                     for (int i = 0; i < array.length(); i++) {
                         JSONObject object = array.getJSONObject(i);
-                        int id = object.getInt("ID");
+                        int id = object.getInt("id");
                         String image = object.getString("image");
-                        int clas = object.getInt("classification_ID");
+                        int clas = object.getInt("clasID");
                         Brand brand = new Brand(id, image, clas);
                         items.add(brand);
                     }
                 } catch (Exception e) {
                     e.printStackTrace(); // Added for debugging
                 }
-                recyclerAdapt = new BrandAdapter(BrandActivity.this, items);
+                recyclerAdapt = new BrandAdapter(BrandActivity.this, items, BrandActivity.this);
                 recyclerView.setAdapter(recyclerAdapt);
             }
-        } ,new Response.ErrorListener() {
+        }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(BrandActivity.this, error.toString(), Toast.LENGTH_LONG).show();
             }
         });
         Volley.newRequestQueue(BrandActivity.this).add(stringRequest);
+    }
+
+    @Override
+    public void onItemClicked(Brand brand) {
+        Intent intent = new Intent(BrandActivity.this, CarType.class);
+        // Pass data to the CarType activity
+        intent.putExtra("brand_id", brand.getID());
+        intent.putExtra("brand_image", brand.getImage());
+        intent.putExtra("brand_clas", brand.getIDClassification());
+        startActivity(intent);
     }
 }
